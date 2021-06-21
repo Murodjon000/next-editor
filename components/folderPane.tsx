@@ -1,12 +1,10 @@
 import React, { FC, useState } from 'react'
 import { Pane, Heading, majorScale, DocumentIcon, Button } from 'evergreen-ui'
 import Link from 'next/link'
-import { getRandomGradientCss } from '../utils/gradient'
 import NewFolderButton from './newFolderButton'
 import NewDocDialog from './newDocumentDialog'
 
 const FolderPane: FC<{ folder: any; docs: any[] }> = ({ folder, docs }) => {
-  const { bg, image } = getRandomGradientCss()
   const [isShown, setIsShown] = useState(false)
   const [allDocs, setAllDocs] = useState(docs || [])
 
@@ -25,7 +23,7 @@ const FolderPane: FC<{ folder: any; docs: any[] }> = ({ folder, docs }) => {
 
   return (
     <Pane>
-      <Pane width="100%" height="200px" backgroundColor={bg} backgroundImage={image}>
+      <Pane width="100%">
         <Pane padding={majorScale(4)}>
           <Pane display="flex" justifyContent="content" alignItems="center" marginBottom={majorScale(4)}>
             <NewFolderButton tooltip="New Document" size={30} onClick={() => setIsShown(true)} />
@@ -35,7 +33,7 @@ const FolderPane: FC<{ folder: any; docs: any[] }> = ({ folder, docs }) => {
               </Heading>
             </Pane>
           </Pane>
-          <Pane display="flex" alignItems="center" flexWrap="wrap" marginTop="150px">
+          <Pane display="flex" alignItems="center" flexWrap="wrap">
             {allDocs.map((doc) => (
               <Pane width="33%" key={doc._id}>
                 <Link href={`/app/${folder._id}/${doc._id}`}>

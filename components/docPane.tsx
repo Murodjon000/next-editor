@@ -2,15 +2,13 @@ import React, { FC } from 'react'
 import { Pane, Heading, majorScale } from 'evergreen-ui'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import { getRandomGradientCss } from '../utils/gradient'
 
 const Editor = dynamic(() => import('./editor'), { ssr: false })
 
 const DocPane: FC<{ folder: any; doc: any }> = ({ folder, doc }) => {
-  const { bg, image } = getRandomGradientCss()
   return (
     <Pane>
-      <Pane width="100%" height="200px" background={bg} backgroundImage={image}>
+      <Pane width="100%">
         <Pane padding={majorScale(4)}>
           <Heading size={900} marginBottom={majorScale(4)}>
             <Link href={`/app/${folder._id}`}>
@@ -18,7 +16,7 @@ const DocPane: FC<{ folder: any; doc: any }> = ({ folder, doc }) => {
             </Link>
             {doc.name}
           </Heading>
-          <Pane display="flex" alignItems="center" marginTop="150px">
+          <Pane display="flex" alignItems="center" >
             <Editor content={doc.content} docId={doc._id} />
           </Pane>
         </Pane>
