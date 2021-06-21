@@ -34,7 +34,7 @@ const BlogPost: FC<Post> = ({ source, frontMatter }) => {
         <HomeNav />
       </header>
       <main>
-        <Container>
+        <Container marginTop={majorScale(3)}>
           <Heading fontSize="clamp(2rem,8vw,6rem)" lineHeight="clamp(2rem,8vw,6rem)" marginY={majorScale(3)}>
             {frontMatter.title}
           </Heading>

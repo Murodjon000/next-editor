@@ -15,7 +15,7 @@ const Blog = ({ posts }) => {
         <HomeNav />
       </header>
       <main>
-        <Container paddingX={majorScale(2)}>
+        <Container marginTop={majorScale(3)} paddingX={majorScale(2)}>
           {posts.map((post) => (
             <Pane key={post.title} marginY={majorScale(5)}>
               <PostPreview post={post} />

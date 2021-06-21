@@ -1,16 +1,16 @@
 import React, { FC, useState } from 'react'
-import { getSession, useSession } from 'next-auth/client'
+import { getSession } from 'next-auth/client'
 import { Pane, Dialog, majorScale } from 'evergreen-ui'
 import { useRouter } from 'next/router'
 import Logo from '../../components/logo'
 import FolderList from '../../components/folderList'
 import NewFolderButton from '../../components/newFolderButton'
 import { connectToDB, folder, doc } from '../../db'
-import { UserSession } from '../../types'
 import User from '../../components/user'
 import FolderPane from '../../components/folderPane'
 import DocPane from '../../components/docPane'
 import NewFolderDialog from '../../components/newFolderDialog'
+import { getRandomGradientCss } from '../../utils/gradient'
 
 const App: FC<{ folders?: any[]; activeFolder?: any; activeDoc?: any; activeDocs?: any[]; session: any }> = ({
   folders,
@@ -20,7 +20,7 @@ const App: FC<{ folders?: any[]; activeFolder?: any; activeDoc?: any; activeDocs
   session,
 }) => {
   const router = useRouter()
-
+  const { bg, image } = getRandomGradientCss()
   const [newFolderIsShown, setIsShown] = useState(false)
   const [allFolders, setFolders] = useState(folders || [])
 
@@ -80,7 +80,9 @@ const App: FC<{ folders?: any[]; activeFolder?: any; activeDoc?: any; activeDocs
         </Pane>
       </Pane>
       <Pane marginLeft={300} width="calc(100vw - 300px)" height="100vh" overflowY="auto" position="relative">
-        <User user={session.user} />
+        <Pane width="100%" height="200px" backgroundColor={bg} backgroundImage={image}>
+          <User user={session.user} />
+        </Pane>
         <Page />
       </Pane>
       <NewFolderDialog close={() => setIsShown(false)} isShown={newFolderIsShown} onNewFolder={handleNewFolder} />
