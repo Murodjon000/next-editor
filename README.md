@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextEditor
+
+- This is a Document editing app that helps you to organise and edit your documents in one place without any difficulties. In order to use the app, you should only sign up with your Github profile.
+
+### Dashboard
+
+![Photo](./public/docs.png)
+
+## Main Features
+
+- A proper authentication system has been implemented using JWT with NextAuth.
+- User can create folders for his documents.
+- User can create documents inside the folders.
+- User can write and edit the documents. Editor js will save documents automatically.
+
+## Built with
+
+- Next js
+- TypeScript
+- Node
+- Editor js
 
 ## Getting Started
 
-First, run the development server:
+- Clone the repo `git@github.com:Murodjon000/next-editor.git`
+- cd `into` the project
+- Run `git pull origin app`
+- Run `yarn install` or `npm install` to install dependencies
+- On the terminal run `yarn dev` open up the live server
+- To run tests write `npm run test` on the terminal
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Author
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👤 **Murodjon Tursunpulatov**
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Github: [@murodjon000](https://github.com/murodjon000)
+- Twitter: [@MurodjonTursun5](https://twitter.com/MurodjonTursun5)
+- Linkedin: [@Murodjon Tursunpulatov](https://www.linkedin.com/in/murodjon-tursunpulatov-5189481b3/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+## 🤝 Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Contributions, issues and feature requests are welcome!
 
-## Learn More
+Feel free to check the [issues page](issues/).
 
-To learn more about Next.js, take a look at the following resources:
+## Show your support
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Give a ⭐️ if you like this project!
