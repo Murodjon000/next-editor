@@ -20,7 +20,9 @@ const HomeNav: FC<{ links?: { name: string; link: string }[] }> = ({ links }) =>
                     <Pane paddingY={majorScale(3)} marginRight={majorScale(2)} key={link.name}>
                       <NextLink href="/blog">
                         <a>
-                          <Text fontSize="16px">Blog</Text>
+                          <Text id="test-nav-text" fontSize="16px">
+                            Blog
+                          </Text>
                         </a>
                       </NextLink>
                     </Pane>

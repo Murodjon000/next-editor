@@ -12,16 +12,19 @@ const User: FC<{ user: UserSession }> = ({ user }) => {
           <Pane>
             <Pane background="tint1" padding={majorScale(2)}>
               <Pane>
-                <Text>{user.name}</Text>
+                <Text id="test-u-name">{user.name}</Text>
               </Pane>
               <Pane>
-                <Text color="muted">{user.email}</Text>
+                <Text id="test-u-email" color="muted">
+                  {user.email}
+                </Text>
               </Pane>
             </Pane>
             <Pane background="white">
               <Menu>
                 <Menu.Item
                   icon={LogOutIcon}
+                  id="test-u-li"
                   intent="danger"
                   onSelect={(e) => {
                     e.preventDefault()

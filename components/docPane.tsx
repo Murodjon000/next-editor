@@ -10,13 +10,13 @@ const DocPane: FC<{ folder: any; doc: any }> = ({ folder, doc }) => {
     <Pane>
       <Pane width="100%">
         <Pane padding={majorScale(4)}>
-          <Heading size={900} marginBottom={majorScale(4)}>
+          <Heading id="test-doc-fname" size={900} marginBottom={majorScale(4)}>
             <Link href={`/app/${folder._id}`}>
-              <a>{folder.name}/</a>
+              <a id="test-doc-name">{folder.name}/</a>
             </Link>
             {doc.name}
           </Heading>
-          <Pane display="flex" alignItems="center" >
+          <Pane display="flex" alignItems="center">
             <Editor content={doc.content} docId={doc._id} />
           </Pane>
         </Pane>

@@ -5,10 +5,12 @@ import Link from 'next/link'
 const PostPreview: FC<{ post: { title: string; summary: string; slug: string } }> = ({ post }) => {
   return (
     <Pane padding={majorScale(2)} border borderRadius={4}>
-      <Heading size={700} marginBottom={majorScale(2)}>
+      <Heading id="test-post-title" size={700} marginBottom={majorScale(2)}>
         {post.title}
       </Heading>
-      <Paragraph marginBottom={majorScale(2)}>{post.summary}</Paragraph>
+      <Paragraph id="test-post-para" marginBottom={majorScale(2)}>
+        {post.summary}
+      </Paragraph>
       <Pane textAlign="right">
         <Link href={`/blog/${post.slug}`}>
           <a>

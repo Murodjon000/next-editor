@@ -28,7 +28,7 @@ const FolderPane: FC<{ folder: any; docs: any[] }> = ({ folder, docs }) => {
           <Pane display="flex" justifyContent="content" alignItems="center" marginBottom={majorScale(4)}>
             <NewFolderButton tooltip="New Document" size={30} onClick={() => setIsShown(true)} />
             <Pane>
-              <Heading size={900} marginLeft={majorScale(2)}>
+              <Heading id="test-fp-title" size={900} marginLeft={majorScale(2)}>
                 {folder.name}
               </Heading>
             </Pane>
@@ -38,7 +38,14 @@ const FolderPane: FC<{ folder: any; docs: any[] }> = ({ folder, docs }) => {
               <Pane width="33%" key={doc._id}>
                 <Link href={`/app/${folder._id}/${doc._id}`}>
                   <a>
-                    <Button intent="none" appearance="minimal" iconBefore={DocumentIcon} height={48} color="tint1">
+                    <Button
+                      id="test-fp-btn"
+                      intent="none"
+                      appearance="minimal"
+                      iconBefore={DocumentIcon}
+                      height={48}
+                      color="tint1"
+                    >
                       {doc.name}
                     </Button>
                   </a>
