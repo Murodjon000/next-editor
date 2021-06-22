@@ -19,6 +19,7 @@
 - TypeScript
 - Node
 - Editor js
+- Evergreen Ui
 
 ## Getting Started
 
