@@ -23,7 +23,7 @@ const SocialButton = ({ type, onClick }) => {
       <Pane display="flex" alignItems="center" justifyContent="space-evenly" fontSize="20px">
         <Icon />
         <span style={{ fontSize: '1.2rem' }}>
-          <strong>{type}</strong>
+          <strong>Continue with {type}</strong>
         </span>
       </Pane>
     </Card>
