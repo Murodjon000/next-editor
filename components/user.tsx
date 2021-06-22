@@ -5,26 +5,23 @@ import { UserSession } from '../types'
 
 const User: FC<{ user: UserSession }> = ({ user }) => {
   return (
-    <Pane position="fixed" top={20} right={20}>
+    <Pane position="fixed" id="test-u-pop" className="user-pop" top={20} right={20}>
       <Popover
         position={Position.BOTTOM_LEFT}
         content={
           <Pane>
             <Pane background="tint1" padding={majorScale(2)}>
               <Pane>
-                <Text id="test-u-name">{user.name}</Text>
+                <Text>{user.name}</Text>
               </Pane>
               <Pane>
-                <Text id="test-u-email" color="muted">
-                  {user.email}
-                </Text>
+                <Text color="muted">{user.email}</Text>
               </Pane>
             </Pane>
             <Pane background="white">
               <Menu>
                 <Menu.Item
                   icon={LogOutIcon}
-                  id="test-u-li"
                   intent="danger"
                   onSelect={(e) => {
                     e.preventDefault()
@@ -46,7 +43,7 @@ const User: FC<{ user: UserSession }> = ({ user }) => {
           alignItems="center"
           justifyContent="center"
         >
-          <Avatar src={user.image} size={48} cursor="pointer" />
+          <Avatar src={user.image} id="test-u-img" className="user-image" size={48} cursor="pointer" />
         </Pane>
       </Popover>
     </Pane>

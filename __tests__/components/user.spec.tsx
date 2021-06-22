@@ -71,9 +71,8 @@ export const shallowSetup = () => {
 }
 
 test('should render User component', () => {
-  const { props, userWrapper } = shallowSetup()
+  const { userWrapper } = shallowSetup()
 
-  // expect(userWrapper.find('#user-t-name').text()).toEqual(props.user.name)
-  // expect(userWrapper.find('#user-t-email').text()).toEqual(props.user.email)
-  // expect(userWrapper.find('#user-t-li').text()).toEqual('Sign out')
+  expect(userWrapper.find('#test-u-pop').hasClass('user-pop')).toBe(true)
+  expect(userWrapper.find('#test-u-img').hasClass('user-image')).toBe(true)
 })
