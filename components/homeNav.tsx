@@ -33,7 +33,7 @@ const HomeNav: FC<{ links?: { name: string; link: string }[] }> = ({ links }) =>
                 <NextLink href={session ? '/app' : '/signin'}>
                   <a>
                     <Button appearance="primary" fontSize="16px">
-                      {session ? 'Dashboard' : 'Sing up'}
+                      {session ? 'Dashboard' : 'Sign up'}
                     </Button>
                   </a>
                 </NextLink>
