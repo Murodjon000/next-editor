@@ -45,34 +45,38 @@ const BlogPost: FC<Post> = ({ source, frontMatter }) => {
   )
 }
 
-export function getStaticPaths() {
-  const postsPath = path.join(process.cwd(), 'posts')
-  const fileNames = fs.readdirSync(postsPath)
-  const slugs = fileNames.map((file) => {
-    const filePath = path.join(postsPath, file)
-    const postFile = fs.readFileSync(filePath, 'utf-8')
-    const { data } = matter(postFile)
-    return data
-  })
+BlogPost.defaultProps = {
+  source: '',
+  frontMatter: { title: 'default title', summary: 'summary', publishedOn: '' },
+}
 
-  return {
-    paths: slugs.map((s) => ({
-      params: {
-        slug: s.slug,
-      },
-    })),
-    fallback: true,
-  }
+export async function getStaticPaths() {
+  const postsDirectory = path.join(process.cwd(), 'posts')
+  const filenames = fs.readdirSync(postsDirectory)
+  const paths = filenames.map((name) => ({ params: { slug: name.replace('.mdx', '') } }))
+
+  return { paths, fallback: true }
 }
 
 export async function getStaticProps({ params }) {
-  const postsPath = path.join(process.cwd(), 'posts', `${params.slug}.mdx`)
-  let post = fs.readFileSync(postsPath, 'utf-8')
+  let post
 
-  const { data } = matter(post)
-  const mdxSource = await renderToString(post, { scope: data })
+  try {
+    const postsPath = path.join(process.cwd(), 'posts', `${params.slug}.mdx`)
+    post = fs.readFileSync(postsPath, 'utf-8')
+  } catch (e) {
+    console.error(e)
+  }
+
+  if (!post) {
+    throw new Error('no post')
+  }
+
+  const { content, data } = matter(post)
+  const mdxSource = await renderToString(content, { scope: data })
   return {
     props: { source: mdxSource, frontMatter: data },
+    revalidate: 30,
   }
 }
 

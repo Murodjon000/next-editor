@@ -12,6 +12,7 @@
 - User can create folders for his documents.
 - User can create documents inside the folders.
 - User can write and edit the documents. Editor js will save documents automatically.
+- Blog posts are in mdx file.Reading them as a component with Next js. You can see blogs in blogs page.
 
 ## Built with
 
